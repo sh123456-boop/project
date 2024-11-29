@@ -1,25 +1,34 @@
 package project1.p1.Controller;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import project1.p1.Item.Book;
 import project1.p1.Service.itemService;
+import project1.p1.Service.service;
 
 import java.util.List;
 
 @RestController
 @Slf4j
+@Component
 public class itemController {
 
-    private final itemService itemService = new itemService();
+
+    private final service itemService;
 
     Book book1 = new Book(1L, "노인과바다", 10000);
     Book book2 = new Book(2L, "소년과 바다", 15000);
 
+    @Autowired
+    public itemController(service itemService) {
+        this.itemService = itemService;
+    }
+
     @GetMapping("/join")
     public String join() {
-
         itemService.join(book1);
         itemService.join(book2);
 

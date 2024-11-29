@@ -1,10 +1,12 @@
 package project1.p1.Repository;
 
+import org.springframework.stereotype.Component;
 import project1.p1.Item.Book;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public interface repository {
     public Book save(Book book) ;
 

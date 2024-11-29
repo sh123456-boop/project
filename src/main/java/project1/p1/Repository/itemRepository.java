@@ -1,5 +1,6 @@
 package project1.p1.Repository;
 
+import org.springframework.stereotype.Component;
 import project1.p1.Item.Book;
 
 import java.util.ArrayList;
@@ -7,6 +8,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@Component
 public class itemRepository implements repository{
 
     Map<Long, Book> repository = new HashMap<>();
